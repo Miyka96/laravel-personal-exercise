@@ -14,7 +14,7 @@
     </div>
     <div class="form-group">
         <label for="price">Product price</label>
-        <input type="number" class="form-control" name="price" id="price" min="0" step="all">
+        <input type="number" class="form-control" name="price" id="price" min="0" step="any">
     </div>
     <div class="form-group">
         <label for="size">Product size</label>
@@ -22,9 +22,9 @@
     </div>
     <div class="form-group">
         <label for="sustainability">Product sustainability</label>
-        <select class="form-control" name="sustainability" id="sustainsustainability">
-            <option value="true">Sustainable</option>
-            <option value="false">Not Sustainable</option>
+        <select class="form-control" name="sustainability" id="sustainability">
+            <option value="1">Sustainable</option>
+            <option value="0">Not Sustainable</option>
         </select>
     </div>
 

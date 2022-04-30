@@ -7,7 +7,7 @@
                 <p class="card-text">{{ $products->description }}</p>
                 <p class="card-text">&euro; {{ $products->price }}</p>
                 <p class="card-text">{{ $products->size }}</p>
-                <p class="card-text">{{ $products->sustainability == true ? 'Sustainable' : 'Not Sustainable' }}</p>
+                <p class="card-text">{{ $products->sustainability == 1 ? 'Sustainable' : 'Not Sustainable' }}</p>
                 <a href="#" class="btn btn-primary">Edit</a>
             </div>
         </div>
