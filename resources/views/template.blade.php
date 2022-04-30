@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Store</title>
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{{route('product.index')}}">Home</a></li>
-                <li><a href="{{route('product.create')}}">Create new Product</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container-fluid">
+        <header>
+            <nav class="py-3">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="nav-link" href="{{route('product.index')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('product.create')}}">Create new Product</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
 
-    <main>
+    <main class="container-fluid">
         @yield('content')
     </main>
 </body>

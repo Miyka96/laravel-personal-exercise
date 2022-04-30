@@ -1,6 +1,6 @@
 @extends('template')
 @section('content')
-    <table>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <td>Id</td>
@@ -21,7 +21,7 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->size }}</td>
                     <td>{{ $product->sustainability == true ? 'Sustainable' : 'Not Sustainable' }}</td>
-                    <td><button><a href="{{route('product.show',$product->id)}}">Visualizza</a></button></td>
+                    <td><button class="btn"><a href="{{route('product.show',$product->id)}}">Visualizza</a></button></td>
             </tr>
             @endforeach
         </tbody>

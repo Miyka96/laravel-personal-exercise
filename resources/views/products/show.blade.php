@@ -1,8 +1,15 @@
 @extends('template')
 @section('content')
-    <h1>Name: {{$products->name}}</h1>
-    <h3>Description: {{$products->description}}</h3>
-    <h3>Price: &euro; {{$products->price}}</h3>
-    <p>Size: {{$products->size}}</p>
-    <p>Sustainability: {{ $products->sustainability == true ? 'Sustainable' : 'Not Sustainable' }}</p>
+    <div class="container-fluid">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ $products->name }}</h5>
+                <p class="card-text">{{ $products->description }}</p>
+                <p class="card-text">&euro; {{ $products->price }}</p>
+                <p class="card-text">{{ $products->size }}</p>
+                <p class="card-text">{{ $products->sustainability == true ? 'Sustainable' : 'Not Sustainable' }}</p>
+                <a href="#" class="btn btn-primary">Edit</a>
+            </div>
+        </div>
+    </div>
 @endsection
