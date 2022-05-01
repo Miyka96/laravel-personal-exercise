@@ -23,8 +23,14 @@
                     <td> &euro; {{ $product->price }}</td>
                     <td>{{ $product->size }}</td>
                     <td>{{ $product->sustainability == true ? 'Sustainable' : 'Not Sustainable' }}</td>
-                    <td><button class="btn"><a href="{{route('product.show',$product->id)}}">Show</a></button></td>
-                    <td><button class="btn"><a href="#">Delete</a></button></td>
+                    <td><button class="btn btn-primary"><a class="text-white" href="{{route('product.show',$product->id)}}">Show</a></button></td>
+                    <td>
+                        <form action="{{route('product.destroy',$product->id)}}" method="post">
+                            @CSRF
+                            @method('delete')
+                            <button class="btn btn-primary" type="submit" onclick="return confirm('Delete this record?')"> Delete</button>
+                        </form>
+                    </td>
             </tr>
             @endforeach
         </tbody>
