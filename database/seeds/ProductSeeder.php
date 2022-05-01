@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Product;
+use Faker\Generator as Faker;
 
 class ProductSeeder extends Seeder
 {
@@ -10,28 +11,20 @@ class ProductSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run( Faker $faker)
     {
-        $products = [
-            [
-                'name'=>'Ocean',
-                'description'=>'Blue t-shirt, elegant silk, unisex',
-                'price'=>18.50,
-                'size'=>'XS',
-                'sustainability' => true
-            ]
-        ];
-        foreach($products as $product){
+
+
+        for($i=0;$i<80;$i++){
             $new_product = new Product();
 
-            $new_product->name = $product['name'];
-            $new_product->description = $product['description'];
-            $new_product->price = $product['price'];
-            $new_product->size = $product['size'];
-            $new_product->sustainability = $product['sustainability'];
-
+            $new_product->name = $faker->word();
+            $new_product->description = $faker->sentence(5);
+            $new_product->price = $faker->randomFloat(2, 5, 200);
+            $new_product->size = $faker->randomElement(['XS', 'S', 'M', 'L', 'XL','XXL']);
+            $new_product->sustainability = $faker->boolean();
+    
             $new_product->save();
-
         }
     }
 }
