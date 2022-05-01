@@ -36,10 +36,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'name' => 'required|string',
+                'img' => 'required|url',
+                'description' => 'required|string',
+                'price' => 'required|numeric|min:0',
+                'size'=> 'required|string',
+                'sustainability' => 'required|boolean'
+            ]
+        );
+
         $data = $request->all();
         $newProduct = new Product();
 
         $newProduct->name = $data['name'];
+        $newProduct->img = $data['img'];
         $newProduct->description = $data['description'];
         $newProduct->price = $data['price'];
         $newProduct->size = $data['size'];
@@ -59,12 +71,12 @@ class ProductController extends Controller
     public function show($id)
     {
         try {
-            $products= Product::findOrFail($id);
+            $products = Product::findOrFail($id);
         } catch (\Exception $e) {
             return view('404');
         }
 
-        return view('products.show',compact('products'));
+        return view('products.show', compact('products'));
     }
 
     /**

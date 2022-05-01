@@ -9,6 +9,10 @@
         <input class="form-control" type="text" name="name" id="name" placeholder="Insert Product name">
     </div>
     <div class="form-group">
+        <label for="img">Product image</label>
+        <input type="text" class="form-control" name="img" id="img" placeholder="Insert image url">
+    </div>
+    <div class="form-group">
         <label for="description">Product description</label>
         <input type="text" class="form-control" name="description" id="description" placeholder="Insert Product description">
     </div>
@@ -31,6 +35,18 @@
     <button class="btn btn-primary" type="submit">
         Submit
     </button>
+
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>
+                    {{$error}}
+                </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
 </form>
 
