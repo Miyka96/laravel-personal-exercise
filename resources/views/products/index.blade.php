@@ -5,6 +5,7 @@
             <tr>
                 <td>Id</td>
                 <td>Name</td>
+                <td>Preview-Image</td>
                 <td>Description</td>
                 <td>Price</td>
                 <td>Size</td>
@@ -16,12 +17,13 @@
             <tr>
                 @foreach ($products as $product)
                     <td>{{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
+                    <td class="text-capitalize">{{ $product->name }}</td>
+                    <td><img src=" {{ $product->img }}"></td>
                     <td>{{ $product->description }}</td>
-                    <td>{{ $product->price }}</td>
+                    <td> &euro; {{ $product->price }}</td>
                     <td>{{ $product->size }}</td>
                     <td>{{ $product->sustainability == true ? 'Sustainable' : 'Not Sustainable' }}</td>
-                    <td><button class="btn"><a href="{{route('product.show',$product->id)}}">Visualizza</a></button></td>
+                    <td><button class="btn"><a href="{{route('product.show',$product->id)}}">Show</a></button></td>
             </tr>
             @endforeach
         </tbody>

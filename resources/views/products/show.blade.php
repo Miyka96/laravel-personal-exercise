@@ -2,6 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{$products->img}}">
             <div class="card-body">
                 <h5 class="card-title">{{ $products->name }}</h5>
                 <p class="card-text">{{ $products->description }}</p>
