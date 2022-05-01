@@ -24,6 +24,7 @@
                     <td>{{ $product->size }}</td>
                     <td>{{ $product->sustainability == true ? 'Sustainable' : 'Not Sustainable' }}</td>
                     <td><button class="btn"><a href="{{route('product.show',$product->id)}}">Show</a></button></td>
+                    <td><button class="btn"><a href="#">Delete</a></button></td>
             </tr>
             @endforeach
         </tbody>

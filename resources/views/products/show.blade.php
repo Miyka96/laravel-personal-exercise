@@ -9,7 +9,7 @@
                 <p class="card-text">&euro; {{ $products->price }}</p>
                 <p class="card-text">{{ $products->size }}</p>
                 <p class="card-text">{{ $products->sustainability == 1 ? 'Sustainable' : 'Not Sustainable' }}</p>
-                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="{{route('product.edit',$products->id)}}" class="btn btn-primary">Edit</a>
             </div>
         </div>
     </div>

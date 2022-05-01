@@ -85,9 +85,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $products = Product::findOrFail($id);
+        return view('products.edit', compact('products'));
     }
 
     /**
@@ -99,7 +100,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required|string',
+                'img' => 'required|url',
+                'description' => 'required|string',
+                'price' => 'required|numeric|min:0',
+                'size'=> 'required|string',
+                'sustainability' => 'required|boolean'
+            ]
+        );
+
+        $data = $request->all();
+        $product->update($data);
+        return redirect()->route('product.show',$product->id);
+
     }
 
     /**
