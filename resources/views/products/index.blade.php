@@ -1,5 +1,9 @@
 @extends('template')
 @section('content')
+
+    <div class="container mb-5">
+        hello test
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
